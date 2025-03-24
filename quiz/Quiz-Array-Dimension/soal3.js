@@ -34,6 +34,19 @@ RULE:
 
 function minDistanceBetweenGreatest(arr) {
     // your code here
+    let maxDistance = Math.max(...arr)
+    let output = [];
+    for(let i = 0; i < arr.length; i++) {
+      if(arr[i] === maxDistance) {
+        for(let j = i + 1; j < arr.length; j++) {
+          if(arr[j] === maxDistance) {
+            output.push(Math.abs(i - j));
+          }
+        }
+      }
+    }
+    if(output.length < 2) return 0;
+    return Math.min(...output);
   }
   
   console.log(minDistanceBetweenGreatest([3, 5, 2, 3, 5, 3, 5])); //2

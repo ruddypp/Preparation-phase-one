@@ -19,6 +19,17 @@ output: [ 'tamkin', 'masuk', 'benci', 'cinta', 'ubar' ]
 
 function doubleReverse(arr) {
     //code here 
+    let result = [];
+    for(let i = arr.length - 1; i >= 0; i--){
+        let str = arr[i];
+        if(str.length % 2 === 0){
+            result.push(str.split('').reverse().join(''));
+        }else{
+            result.push(str);
+        }
+    }
+   
+    return result;
 }
 
 console.log(doubleReverse(['rabu', 'cinta', 'benci', 'masuk', 'nikmat']));
