@@ -36,6 +36,24 @@ NOTE:
 
 function squareNumber(num) {
     //code here
+    if (num < 3) {
+      return 'Minimal input adalah 3';
+    }
+    const board = [];
+    let counter = 1;
+    for (let i = 0; i < num; i++) {
+      const row = [];
+      // For each row
+      for (let j = 0; j < num; j++) {
+        row.push(counter++);
+      }
+      
+      if (i % 2 === 1) {
+        row.reverse();
+      }
+      board.unshift(row);
+    }
+    return board;
   }
   
   console.log(squareNumber(3));

@@ -23,6 +23,26 @@ PADA MASING-MASING TEST CASE SUDAH TERDAPAT RANGE TERBESAR DAN TERKECIL
 
 function missingNum(arr) {
     //code here
+    
+  if (arr.length === 0) return [];
+  const numbers = [];
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr[i].length; j++) {
+      if (arr[i][j] !== ' ') {
+        numbers.push(arr[i][j]);
+      }
+    }
+  }
+  const min = Math.min(...numbers);
+  const max = Math.max(...numbers);
+  const result = [];
+  for (let i = min; i <= max; i++) {
+    if (!numbers.includes(i)) {
+      result.push(i);
+    }
+  }
+  
+  return result;
   }
   
   

@@ -49,6 +49,38 @@ NOTE:
 
 function squareNumber(num) {
     //code here
+    if (num < 3) {
+      return 'Minimal input adalah 3';
+    }
+    const board = [];
+    let counter = 1;
+    
+    for (let i = 0; i < num; i++) {
+      const row = [];
+      for (let j = 0; j < num; j++) {
+        row.push(counter++);
+      }
+
+      if (i % 2 === 1) {
+        row.reverse();
+      }
+      board.push(row);
+    }
+    for (let i = 0; i < num; i++) {
+      for (let j = 0; j < num; j++) {
+        const value = board[i][j];
+        
+        if (value % 4 === 0) {
+          board[i][j] = '#';
+        } else if (value % 2 === 0) {
+          board[i][j] = 'o';
+        } else {
+          board[i][j] = 'x';
+        }
+      }
+    }
+    
+    return board;
   }
   
   console.log(squareNumber(3));
